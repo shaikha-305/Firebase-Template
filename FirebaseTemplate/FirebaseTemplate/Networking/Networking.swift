@@ -18,6 +18,24 @@ class Networking// : Networkable
     static func getUserId() -> String?{
         Auth.auth().currentUser?.uid
     }
+    static func getDocumentOfCollection<T: Codable>(DOCUMENT_PATH: String, success: @escaping(T)-> Void)
+        {
+            Firestore.firestore().document(DOCUMENT_PATH).getDocument { (snapshot, error) in
+                if error == nil{
+                    // there is no error
+                    if snapshot != nil {
+                        // There is data
+                        guard let items = try? FirebaseDecoder().decode(T.self, from: snapshot?.data() as Any) else {
+                            print("The document \(snapshot?.data()) you are trying to get is not convertable to the type \(T.Type.self)")
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            success(items)
+                        }
+                    }
+                }
+            }
+        }
     
     /// **success only**
     static func createItem<T:Codable>(_ item: T, inCollection COLLECTION_NAME: String, withDocumentId documentId: String = "",  success: @escaping ()-> Void)

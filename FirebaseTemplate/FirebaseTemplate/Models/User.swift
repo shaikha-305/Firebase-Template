@@ -6,14 +6,14 @@ typealias FirebaseUser = Firebase.User
 
 
 struct User: Codable{
-    var firstName: String = ""
-    var lastName: String = ""
-    var email: String = ""
-    var phoneNumber: String = ""
-    
-    func fullName() -> String{
-        firstName + " " + lastName
-    }
+    var ownerName: String!
+    var email: String!
+    var petName: String!
+    var petType: String!
+    var petGender: String!
+    var petAge: String!
+    var petMonth: String!
+    var petYear: String!
 }
 
 

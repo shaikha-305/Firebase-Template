@@ -6,5 +6,5 @@ target 'FirebaseTemplate' do
   use_frameworks!
    pod 'CodableFirebase'
   # Pods for FirebaseTemplate
-
+  pod "BSImagePicker", "~> 3.1"
 end

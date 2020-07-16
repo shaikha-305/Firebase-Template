@@ -29,6 +29,7 @@ extension Networking{
         Auth.auth().createUser(withEmail: user.email, password: password) { (result, error) in
             guard (error == nil) else {
                 DispatchQueue.main.async{
+                    print("error",error)
                     fail?()
                 }
                 return
