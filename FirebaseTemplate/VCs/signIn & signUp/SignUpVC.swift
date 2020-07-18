@@ -7,11 +7,15 @@
 //
 import Firebase
 import UIKit
-import 
+import BSImagePicker
+import Photos
 
 class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    var imageurl: URL!
+    @IBOutlet var petImageView: UIImageView!
     let imagePicker = ImagePickerController()
-    var petInfo: User!
+    var petInfo: Pet!
+    var userInfo: User!
     @IBOutlet weak var petTypeField: UITextField!
     var currentTextField: UITextField!
     let types = ["قطه", "كلب"]
@@ -35,6 +39,8 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     
     @IBAction func signUpButton(_ sender: Any) {
+        let uid = Auth.auth().currentUser!.uid
+        let collectionName = "pets/\(uid)/data"
         let error = validateTheFields()
         if error != nil{
             errorMessage(message: error!)
@@ -52,17 +58,19 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
             // You can use another User Struct as you wish
             let user = User(ownerName: ownerName,
-                            email: email,
-                            petName: petName,
-                            petType: petType,
-                            petGender: petGender,
-                            petAge: petAge,
-                            petMonth: petMonth,
-                            petYear: petYear)
-            
+                            email: email)
+            let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl)
             if validatePassword(password: password, conformPassword: conformPassword){
                 Networking.signUp(user: user, password: password, success:  { uid in
                     // ✅ Success
+                    Networking.createItem(pet, inCollection: "users/\(uid)/pets") {
+                        print("🚀")
+                    }
+//                    Networking.myFuncForUploadItem(pet, inCollection: "pets", nameDocmount: "data", nameCollection: uid, name2Docmount: "1", success: {
+//                            print("your pet has been added successfully✅")
+//                    })
+
+
                     print("You have signed up successfully")
                     self.getData()
                 }){
@@ -74,9 +82,8 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             else{
                 errorMessage(message: "Password are not matching!")
             }
-            
-            
         }
+       
     }
     func validatePassword(password: String, conformPassword: String) -> Bool{
         return password == conformPassword
@@ -91,14 +98,14 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "signUp" {
-            let vc = segue.destination as! ProfileVC
-            vc.petNameText = petNameTextField.text!
-            vc.petAgeText = ageField.text!
-            vc.petType = petTypeField.text!
-            vc.petGender = genderField.text!
-            vc.year = petInfo.petYear
-            vc.month = petInfo.petMonth
-            vc.petInfo = petInfo
+            let vc = segue.destination as! MultiPetsCollectionVC
+//            vc.petNameText = petNameTextField.text!
+//            vc.petAgeText = ageField.text!
+//            vc.petType = petTypeField.text!
+//            vc.petGender = genderField.text!
+//            vc.year = petInfo.petYear
+//            vc.month = petInfo.petMonth
+//            vc.petInfo = petInfo
         }
     }
     
@@ -113,7 +120,11 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         }, cancel: { (assets : [PHAsset]) in
             // User canceled selection.
         }, finish: { (assets : [PHAsset]) in
-         self.ImageView.image = self.getAssetThumbnail(asset: assets[0])
+            self.petImageView.image = UploadImage().getAssetThumbnail(asset: assets[0])
+            UploadImage.UploadImageAndGetUrl(path: "images", "saad.png", ImageView: self.petImageView.image!) { (url: URL) in
+                self.imageurl = url
+                       print(url)
+                   }
 
         })
     }
@@ -165,8 +176,8 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             let year = "\(pickerView.selectedRow(inComponent: 0)) سنه"
             let month = "\(pickerView.selectedRow(inComponent: 1)) شهر"
             currentTextField.text = year + month
-            yearLabel.text = "\(pickerView.selectedRow(inComponent: 0))"
-            monthLabel.text = "\(pickerView.selectedRow(inComponent: 1))"
+//            yearLabel.text = "\(pickerView.selectedRow(inComponent: 0))"
+//            monthLabel.text = "\(pickerView.selectedRow(inComponent: 1))"
            }
         }
     
@@ -200,7 +211,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         guard let userID = Auth.auth().currentUser?.uid else {
             fatalError("this user doesnt exist")
         }
-        Networking.getSingleDocument("users/\(userID)", success: { (userInfo: User) in
+        Networking.getSingleDocument("users/\(userID)", success: { (userInfo: Pet) in
             DispatchQueue.main.async {
                 self.petInfo = userInfo
                 self.performSegue(withIdentifier: "signUp", sender: self)

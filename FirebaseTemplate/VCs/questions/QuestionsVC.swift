@@ -9,7 +9,7 @@
 import UIKit
 
 class QuestionsVC: UIViewController {
-    var petInfo: User!
+    var petInfo: Pet!
     var year: String?
     var month: String?
     var answers: [Int] = []

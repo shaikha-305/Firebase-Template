@@ -75,7 +75,26 @@ class Networking// : Networkable
                 }
         }
     }
-    
+    static func myFuncForUploadItem<T:Codable>(_ item: T, inCollection COLLECTION_NAME: String ,  nameDocmount : String, nameCollection : String, name2Docmount : String, success: @escaping()-> Void)
+    {
+        let encoded = try! FirestoreEncoder().encode(item)
+        Firestore
+            .firestore()
+            .collection(COLLECTION_NAME).document("\(nameDocmount)").collection("\(nameCollection)").document("\(name2Docmount)")
+            .setData(encoded) { (error) in
+                if error == nil{
+                    // :white_check_mark:
+                    print("Added ")
+                    DispatchQueue.main.async {
+                        success()
+                    }
+                }
+                else{
+                    // :x:
+                    print("Error encountered", error)
+                }
+        }
+    }
     static func getListOf<T: Codable>(COLLECTION_NAME: String, success: @escaping([T])-> Void)
     {
         getListOf(COLLECTION_NAME: COLLECTION_NAME, success: success) { err in}

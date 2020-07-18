@@ -7,4 +7,5 @@ target 'FirebaseTemplate' do
    pod 'CodableFirebase'
   # Pods for FirebaseTemplate
   pod "BSImagePicker", "~> 3.1"
+  pod 'SDWebImage', '~> 5.0'
 end

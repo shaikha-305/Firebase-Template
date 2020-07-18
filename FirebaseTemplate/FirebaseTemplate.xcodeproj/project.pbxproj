@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		894A7AC924C1067D00275045 /* UploadImageCustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A7AC824C1067D00275045 /* UploadImageCustomClass.swift */; };
 		89598E2224BFCFA500BC549A /* collectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89598E2124BFCFA500BC549A /* collectionViewCell.swift */; };
 		896A528524BD0FD2009665DB /* profileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A528424BD0FD2009665DB /* profileModels.swift */; };
 		896A528924BD0FDE009665DB /* tipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A528624BD0FDD009665DB /* tipsModel.swift */; };
@@ -79,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		8907945224BE57E300135C56 /* FirebaseTemplate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FirebaseTemplate.entitlements; sourceTree = "<group>"; };
+		894A7AC824C1067D00275045 /* UploadImageCustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCustomClass.swift; sourceTree = "<group>"; };
 		89598E2124BFCFA500BC549A /* collectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionViewCell.swift; sourceTree = "<group>"; };
 		896A528424BD0FD2009665DB /* profileModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileModels.swift; sourceTree = "<group>"; };
 		896A528624BD0FDD009665DB /* tipsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tipsModel.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				896A528624BD0FDD009665DB /* tipsModel.swift */,
 				896A528824BD0FDE009665DB /* VetInfoModel.swift */,
 				89598E2124BFCFA500BC549A /* collectionViewCell.swift */,
+				894A7AC824C1067D00275045 /* UploadImageCustomClass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				896A529C24BD10A0009665DB /* AddVC.swift in Sources */,
 				896A529B24BD10A0009665DB /* PetsCustomCell.swift in Sources */,
 				896A52B524BD1175009665DB /* SignUpVC.swift in Sources */,
+				894A7AC924C1067D00275045 /* UploadImageCustomClass.swift in Sources */,
 				896A52B024BD1125009665DB /* ProfileVC.swift in Sources */,
 				D2C2704824662C63005E16A3 /* DateFromatter.swift in Sources */,
 				D2C2704F24662C73005E16A3 /* NetowrkableAuth.swift in Sources */,

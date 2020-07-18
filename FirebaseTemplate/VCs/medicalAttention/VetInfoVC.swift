@@ -11,7 +11,7 @@ import UIKit
 class VetInfoVC: UIViewController {
     @IBOutlet weak var otherSolutionOutlet: UIButton!
     @IBOutlet weak var petNameLabel: UILabel!
-    var petInfo: User!
+    var petInfo: Pet!
     var petName: String!
     var showButton: Bool = false
     var showImage: Bool = false

@@ -16,4 +16,4 @@ struct Profile {
     
 }
 
-var myPets: [User] = []
+
