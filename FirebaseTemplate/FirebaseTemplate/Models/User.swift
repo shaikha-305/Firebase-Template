@@ -24,7 +24,7 @@ struct Pet: Codable{
     var petAge: String!
     var petMonth: String!
     var petYear: String!
-    var imageUrl: URL?
+    var imageUrl: String?
 }
 var myPets: [Pet] = [Pet(petName: "", petType: "", petGender: "", petAge: "", petMonth: "", petYear: "")]
 

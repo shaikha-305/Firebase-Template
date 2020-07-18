@@ -62,8 +62,9 @@ extension MultiPetsCollectionVC: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCollectionViewCell
         
         // Configure the cell
-        cell.petNameLabel.text = myPets[indexPath.row].petName
-        
+        let pet = myPets[indexPath.row]
+        cell.petNameLabel.text = pet.petName
+        cell.petImgView.sd_setImage(with:  URL(string: pet.imageUrl ?? "https://img.huffingtonpost.com/asset/5b7fdeab1900001d035028dc.jpeg"), completed: nil)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

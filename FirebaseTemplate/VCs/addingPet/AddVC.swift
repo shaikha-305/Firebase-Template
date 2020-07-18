@@ -43,7 +43,7 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         let petGender = genderField.text!
         let petYear = year
         let petMonth = month
-        let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl)
+        let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl.absoluteString)
         newPet.petName = petNameTextField.text!
         newPet.petAge = ageField.text!
         newPet.petType = petTypeField.text!

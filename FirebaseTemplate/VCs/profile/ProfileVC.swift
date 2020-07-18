@@ -40,12 +40,12 @@ class ProfileVC: UIViewController {
         }) { (err) in
             print(err)
         }
-        Networking.getDocumentOfCollection(DOCUMENT_PATH: "pets/data/\(userID)/1") { (userInfo: Pet) in
-            self.petInfo = userInfo
-            self.reloadInputViews()
-            self.displayingData()
-            self.reloadInputViews()
-        }
+//        Networking.getDocumentOfCollection(DOCUMENT_PATH: "pets/data/\(userID)/1") { (userInfo: Pet) in
+//            self.petInfo = userInfo
+//            self.reloadInputViews()
+//            self.displayingData()
+//            self.reloadInputViews()
+//        }
     }
     
     @IBAction func doYouNeedHelpButton(_ sender: Any) {
@@ -70,7 +70,7 @@ class ProfileVC: UIViewController {
         petAgeTextView.text = petInfo.petAge!
         petTypeTextView.text = petInfo.petType!
         petGenderTextView.text = petInfo.petGender!
-        SDWebImageDownloader().downloadImage(with: petInfo.imageUrl, options: .highPriority, progress: {  (receivedSize, expectedSize, url) in
+        SDWebImageDownloader().downloadImage(with: URL(string: petInfo.imageUrl ?? ""), options: .highPriority, progress: {  (receivedSize, expectedSize, url) in
             // image is being downloading and you can monitor progress here
         }) { (downloadedImage, data, error, success) in
             self.imageView.image = downloadedImage

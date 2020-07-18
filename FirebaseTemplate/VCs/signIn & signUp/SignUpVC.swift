@@ -59,7 +59,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             // You can use another User Struct as you wish
             let user = User(ownerName: ownerName,
                             email: email)
-            let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl)
+            let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl.absoluteString)
             if validatePassword(password: password, conformPassword: conformPassword){
                 Networking.signUp(user: user, password: password, success:  { uid in
                     // ✅ Success
