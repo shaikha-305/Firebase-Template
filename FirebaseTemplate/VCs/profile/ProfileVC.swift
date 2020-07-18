@@ -30,7 +30,7 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.layer.cornerRadius = petImageView.frame.size.width/2
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
         petNameTextView.text = selectedPet.petName
         petTypeTextView.text = selectedPet.petType
         petGenderTextView.text = selectedPet.petGender
@@ -71,8 +71,8 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func imageBtn(_ sender: Any) {
+        let userID = Auth.auth().currentUser?.uid
         imagePicker.settings.selection.max = 1
-
         presentImagePicker(imagePicker, select: { (asset) in
             // User selected an asset. Do something with it. Perhaps begin processing/upload?
         }, deselect: { (asset : PHAsset) in
@@ -84,8 +84,13 @@ class ProfileVC: UIViewController {
             let id = UUID()
             UploadImage.UploadImageAndGetUrl(path: "images", "\(id).png", ImageView: self.imageView.image!) { (url: URL) in
                 self.imageurl = url
-                       print(url)
-                   }
+                print(url)
+                var updatedPet = self.selectedPet
+                updatedPet?.imageUrl = url.absoluteString
+                Networking.createItem(updatedPet, inCollection: "users/\(userID!)/pets", withDocumentId: "\(self.selectedPet.id!)") {
+                    print("Image should be updated")
+                }
+            }
         })
     }
     

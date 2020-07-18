@@ -16,8 +16,6 @@ class SigninVC: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func signInBtn(_ sender: Any) {
@@ -32,9 +30,7 @@ class SigninVC: UIViewController {
             // ❌ Fail
             self.errorMessage(message: "iVet couldn't sign you in with an error: \(error)")
         }
-//        Networking.getDocumentOfCollection(DOCUMENT_PATH: "pets/data/\(uid)/1") { (myPets: [Pet]) in
-//            print("your pet has been added successfully🧶")
-//        }
+
         func errorMessage(message: String){
                let alertController = UIAlertController(title: "Opps🙈", message: message , preferredStyle: .alert)
                let okAction = UIAlertAction(title: "Ok", style: .cancel)
@@ -47,15 +43,6 @@ class SigninVC: UIViewController {
         Networking.forgetPassword(email: emailTextField.text!)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func errorMessage(message: String){
         let alertController = UIAlertController(title: "Opps🙈", message: message , preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel)

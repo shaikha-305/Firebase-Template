@@ -14,9 +14,9 @@ class MultiPetsCollectionVC: UIViewController{
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.reloadData()
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self

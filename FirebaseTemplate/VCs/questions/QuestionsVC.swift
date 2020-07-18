@@ -26,7 +26,6 @@ class QuestionsVC: UIViewController {
         }
         setQuestionLabel()
         questionLabel.numberOfLines = 0
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func yesBtn(_ sender: Any) {
@@ -65,7 +64,7 @@ class QuestionsVC: UIViewController {
             Question(question: "هل لاحظت على \(self.petInfo.petName!) قلة حركة ملحوظه والم في المفاصل؟")
         ]
         let packageNumber = checkAnswer(answer: answers)
-        if i == catQuestionsM.count && self.petInfo.petType == "قطه" && self.petInfo.petGender == "Male"{
+        if i == catQuestionsM.count && self.petInfo.petType == "قطه" && self.petInfo.petGender == "ذكر"{
             switch packageNumber {
             case 1:
                 choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "", petName: self.petInfo.petName)
@@ -82,9 +81,9 @@ class QuestionsVC: UIViewController {
             default:
                 fatalError()
             }
-        }else if self.petInfo.petType == "قطه" && i != catQuestionsM.count && self.petInfo.petGender == "Male"{
+        }else if self.petInfo.petType == "قطه" && i != catQuestionsM.count && self.petInfo.petGender == "ذكر"{
             questionLabel.text = "\(catQuestionsM[i].question)"
-        }else if self.petInfo.petType == "قطه" && i == catQuestionsF.count && self.petInfo.petGender == "Female"{
+        }else if self.petInfo.petType == "قطه" && i == catQuestionsF.count && self.petInfo.petGender == "أنثى"{
             switch packageNumber {
             case 1:
                 choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "", petName: (self.petInfo.petName)!)
@@ -101,9 +100,9 @@ class QuestionsVC: UIViewController {
             default:
                 fatalError()
             }
-        }else if self.petInfo.petType == "قطه" && i != catQuestionsF.count && self.petInfo.petGender == "Female" {
+        }else if self.petInfo.petType == "قطه" && i != catQuestionsF.count && self.petInfo.petGender == "أنثى" {
             questionLabel.text = "\(catQuestionsF[i].question)"
-        }else if self.petInfo.petType == "كلب" && i == dogQuestionsM.count && self.petInfo.petGender == "Male" {
+        }else if self.petInfo.petType == "كلب" && i == dogQuestionsM.count && self.petInfo.petGender == "ذكر" {
             switch packageNumber {
             case 7:
                 choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق عند \(self.petInfo.petName)", tips: dogTips7)
@@ -116,9 +115,9 @@ class QuestionsVC: UIViewController {
             default:
                 fatalError()
             }
-        }else if i != dogQuestionsM.count && self.petInfo.petType == "كلب" && self.petInfo.petGender == "Male" {
+        }else if i != dogQuestionsM.count && self.petInfo.petType == "كلب" && self.petInfo.petGender == "ذكر" {
             questionLabel.text = "\(dogQuestionsM[i].question)"
-        }else if self.petInfo.petType == "كلب" && self.petInfo.petGender == "Female" && i == dogQuestionsF.count{
+        }else if self.petInfo.petType == "كلب" && self.petInfo.petGender == "أنثى" && i == dogQuestionsF.count{
             switch packageNumber {
             case 7:
                 choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق عند \(self.petInfo.petName)", tips: dogTips7)
@@ -131,7 +130,7 @@ class QuestionsVC: UIViewController {
             default:
                 fatalError()
             }
-        }else if i != dogQuestionsF.count && self.petInfo.petType == "كلب" && self.petInfo.petGender == "Female"{
+        }else if i != dogQuestionsF.count && self.petInfo.petType == "كلب" && self.petInfo.petGender == "أنثى"{
             questionLabel.text = "\(dogQuestionsF[i].question)"
         }
     }

@@ -15,9 +15,7 @@
 		896A528B24BD0FDE009665DB /* VetInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A528824BD0FDE009665DB /* VetInfoModel.swift */; };
 		896A529024BD1019009665DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 896A528F24BD1018009665DB /* Main.storyboard */; };
 		896A529224BD102A009665DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 896A529124BD102A009665DB /* Assets.xcassets */; };
-		896A529B24BD10A0009665DB /* PetsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A529824BD10A0009665DB /* PetsCustomCell.swift */; };
 		896A529C24BD10A0009665DB /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A529924BD10A0009665DB /* AddVC.swift */; };
-		896A529D24BD10A0009665DB /* MultiPetsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A529A24BD10A0009665DB /* MultiPetsVC.swift */; };
 		896A529F24BD10AF009665DB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A529E24BD10AF009665DB /* HomeVC.swift */; };
 		896A52A224BD10BE009665DB /* VetInfoTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A52A024BD10BD009665DB /* VetInfoTableVC.swift */; };
 		896A52A324BD10BE009665DB /* VetInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A52A124BD10BE009665DB /* VetInfoTableViewCell.swift */; };
@@ -90,9 +88,7 @@
 		896A528E24BD1005009665DB /* DroidKufi-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidKufi-Bold.ttf"; sourceTree = "<group>"; };
 		896A528F24BD1018009665DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		896A529124BD102A009665DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		896A529824BD10A0009665DB /* PetsCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsCustomCell.swift; sourceTree = "<group>"; };
 		896A529924BD10A0009665DB /* AddVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
-		896A529A24BD10A0009665DB /* MultiPetsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPetsVC.swift; sourceTree = "<group>"; };
 		896A529E24BD10AF009665DB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		896A52A024BD10BD009665DB /* VetInfoTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VetInfoTableVC.swift; sourceTree = "<group>"; };
 		896A52A124BD10BE009665DB /* VetInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VetInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -240,8 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				896A529924BD10A0009665DB /* AddVC.swift */,
-				896A529A24BD10A0009665DB /* MultiPetsVC.swift */,
-				896A529824BD10A0009665DB /* PetsCustomCell.swift */,
 			);
 			path = addingPet;
 			sourceTree = "<group>";
@@ -597,7 +591,6 @@
 				D2C2704A24662C68005E16A3 /* Keyboard.swift in Sources */,
 				D209076924B9FDC60069B920 /* CreateItemVC.swift in Sources */,
 				896A528524BD0FD2009665DB /* profileModels.swift in Sources */,
-				896A529D24BD10A0009665DB /* MultiPetsVC.swift in Sources */,
 				D2C2704624662C63005E16A3 /* ImageUploader.swift in Sources */,
 				896A52AD24BD1105009665DB /* QuestionsVC.swift in Sources */,
 				D209076B24B9FDD80069B920 /* ItemListVC.swift in Sources */,
@@ -608,7 +601,6 @@
 				D2C2704524662C63005E16A3 /* ImageLoader.swift in Sources */,
 				896A528924BD0FDE009665DB /* tipsModel.swift in Sources */,
 				896A529C24BD10A0009665DB /* AddVC.swift in Sources */,
-				896A529B24BD10A0009665DB /* PetsCustomCell.swift in Sources */,
 				896A52B524BD1175009665DB /* SignUpVC.swift in Sources */,
 				894A7AC924C1067D00275045 /* UploadImageCustomClass.swift in Sources */,
 				896A52B024BD1125009665DB /* ProfileVC.swift in Sources */,

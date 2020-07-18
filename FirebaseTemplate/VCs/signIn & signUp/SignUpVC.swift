@@ -11,6 +11,8 @@ import BSImagePicker
 import Photos
 
 class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    var year: String!
+    var month: String!
     var imageurl: URL!
     @IBOutlet var petImageView: UIImageView!
     let imagePicker = ImagePickerController()
@@ -20,12 +22,12 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     var currentTextField: UITextField!
     let types = ["قطه", "كلب"]
     @IBOutlet weak var genderField: UITextField!
-    let gender = ["Female", "Male"]
+    let gender = ["أنثى", "ذكر"]
     @IBOutlet weak var ageField: UITextField!
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var monthLabel: UILabel!
-    let months = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
-    let years = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]
+    let months = (0...11).map{"\($0)"}
+    let years = (0...20).map{"\($0)"}
     var pickerView = UIPickerView()
     @IBOutlet weak var petNameTextField: UITextField!
     @IBOutlet weak var ownerNameTextField: UITextField!
@@ -40,10 +42,10 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-  
+        let uid = Auth.auth().currentUser?.uid
         let error = validateTheFields()
         if error != nil{
-            errorMessage(message: error!)
+            errorMessage(message: " املاأ جميع الفراغات😅")
         }else{
             let email = emailTextField.text!
             let password = passwordTextField.text!
@@ -53,37 +55,29 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             let petType = petTypeField.text!
             let petAge = ageField.text!
             let petGender = genderField.text!
-            let petYear = "\(pickerView.selectedRow(inComponent: 0))"
-            let petMonth = "\(pickerView.selectedRow(inComponent: 1))"
-        
-            // You can use another User Struct as you wish
+            let petMonth = month
+            let petYear = year
+            let petId = UUID()
             let user = User(ownerName: ownerName,
                             email: email)
-            let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl.absoluteString)
+            let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl.absoluteString, id: "\(petId)")
             if validatePassword(password: password, conformPassword: conformPassword){
                 Networking.signUp(user: user, password: password, success:  { uid in
                     // ✅ Success
-                    Networking.createItem(pet, inCollection: "users/\(uid)/pets") {
+                    Networking.createItem(pet, inCollection: "users/\(uid)/pets", withDocumentId: "\(petId)") {
                         print("🚀")
                     }
-//                    Networking.myFuncForUploadItem(pet, inCollection: "pets", nameDocmount: "data", nameCollection: uid, name2Docmount: "1", success: {
-//                            print("your pet has been added successfully✅")
-//                    })
-
-
-                    print("You have signed up successfully")
                     self.getData()
                 }){
                     // ❌ Failed
-                    print("there is a problem🤡")
-                    self.errorMessage(message: "Couldn't sign up, make sure the email and password are correct")
+                    self.errorMessage(message: "لا يمكننا تسجيل الدخول الرجاء التأكد من البريد الالكتروني وكلمة المرور!")
                 }
             }
             else{
-                errorMessage(message: "Password are not matching!")
+                errorMessage(message: "كلمة المرور لا تتطابق😅")
             }
         }
-       
+        
     }
     func validatePassword(password: String, conformPassword: String) -> Bool{
         return password == conformPassword
@@ -99,16 +93,15 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "signUp" {
             let vc = segue.destination as! MultiPetsCollectionVC
-
+            
         }
     }
     
     @IBAction func imageBtn(_ sender: Any) {
         imagePicker.settings.selection.max = 1
-
+        
         presentImagePicker(imagePicker, select: { (asset) in
             // User selected an asset. Do something with it. Perhaps begin processing/upload?
-
         }, deselect: { (asset : PHAsset) in
             // User deselected an asset. Cancel whatever you did when asset was selected.
         }, cancel: { (assets : [PHAsset]) in
@@ -117,9 +110,8 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             self.petImageView.image = UploadImage().getAssetThumbnail(asset: assets[0])
             UploadImage.UploadImageAndGetUrl(path: "images", "saad.png", ImageView: self.petImageView.image!) { (url: URL) in
                 self.imageurl = url
-                       print(url)
-                   }
-
+                print(url)
+            }
         })
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int{
@@ -141,7 +133,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 return months.count
             }
         }
-            return 0
+        return 0
         
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -156,7 +148,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 return months[row]
             }
         }
-            return ""
+        return ""
         
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -167,13 +159,13 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             currentTextField.text = gender[row]
             currentTextField.resignFirstResponder()
         }else if currentTextField == ageField {
-            let year = "\(pickerView.selectedRow(inComponent: 0)) سنه"
-            let month = "\(pickerView.selectedRow(inComponent: 1)) شهر"
+            let year = "\(pickerView.selectedRow(inComponent: 0)) سنه و "
+            let month = "\(pickerView.selectedRow(inComponent: 1)) شهور"
             currentTextField.text = year + month
-//            yearLabel.text = "\(pickerView.selectedRow(inComponent: 0))"
-//            monthLabel.text = "\(pickerView.selectedRow(inComponent: 1))"
-           }
+            self.year = "\(pickerView.selectedRow(inComponent: 0))"
+            self.month = "\(pickerView.selectedRow(inComponent: 1))"
         }
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.pickerView.delegate = self

@@ -102,7 +102,7 @@ class Networking// : Networkable
     
     static func getListOf<T: Codable>(COLLECTION_NAME: String, success: @escaping([T])-> Void, fail: @escaping(Error?)-> Void)
     {
-        Firestore.firestore().collection(COLLECTION_NAME).getDocuments { (snapshot, error) in
+        Firestore.firestore().collection(COLLECTION_NAME).addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
             if error == nil{
                 // there is no error
                 if let snapshot = snapshot{
