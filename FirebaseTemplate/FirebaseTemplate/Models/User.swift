@@ -25,8 +25,9 @@ struct Pet: Codable{
     var petMonth: String!
     var petYear: String!
     var imageUrl: String?
+    var id: String?
 }
-var myPets: [Pet] = [Pet(petName: "", petType: "", petGender: "", petAge: "", petMonth: "", petYear: "")]
+var myPets: [Pet] = [Pet(petName: "", petType: "", petGender: "", petAge: "", petMonth: "", petYear: "", id: "")]
 
 
 struct SignInCredentials: Encodable

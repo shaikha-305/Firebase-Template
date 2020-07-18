@@ -3,4 +3,86 @@
    uuid = "671F2E41-81FB-499C-817B-1EE319F9FD32"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02D00163-2F58-496F-9B81-F2BBBE133B80"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VCs/profile/ProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "displayingData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "02D00163-2F58-496F-9B81-F2BBBE133B80 - 87c7c925bc1ec265"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FirebaseTemplate.ProfileVC.displayingData() -&gt; ()"
+                  moduleName = "FirebaseTemplate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huda/Documents/GitHub/Firebase-Template/FirebaseTemplate/VCs/profile/ProfileVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "153">
+               </Location>
+               <Location
+                  uuid = "02D00163-2F58-496F-9B81-F2BBBE133B80 - 29d29a68ec8e1996"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int, Swift.Int, Swift.Optional&lt;Foundation.URL&gt;) -&gt; () in FirebaseTemplate.ProfileVC.displayingData() -&gt; ()"
+                  moduleName = "FirebaseTemplate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huda/Documents/GitHub/Firebase-Template/FirebaseTemplate/VCs/profile/ProfileVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7731B2B0-7D4E-42D6-86C8-FB732A15F606"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VCs/profile/ProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "39E279C2-109E-4480-80B5-0A3CAE5F0100"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VCs/profile/ProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "displayingData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

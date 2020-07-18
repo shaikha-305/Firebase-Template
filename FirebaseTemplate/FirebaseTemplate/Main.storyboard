@@ -207,7 +207,7 @@
             <objects>
                 <viewController id="tDQ-FA-lpd" customClass="ProfileVC" customModule="FirebaseTemplate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M0S-Tq-Cql">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="AR13" translatesAutoresizingMaskIntoConstraints="NO" id="dVc-FP-3uI">
@@ -285,19 +285,11 @@
                                 <fontDescription key="fontDescription" name="DroidArabicKufi" family="Droid Arabic Kufi" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnE-le-y4z">
-                                <rect key="frame" x="331" y="63" width="35" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus"/>
-                                <connections>
-                                    <action selector="plusBtn:" destination="tDQ-FA-lpd" eventType="touchUpInside" id="dDN-2t-BUz"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prm-BU-ENy">
                                 <rect key="frame" x="128" y="135" width="158" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ce9-qx-re1">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ce9-qx-re1">
                                         <rect key="frame" x="-4" y="0.0" width="166" height="158"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -323,7 +315,6 @@
                         <outlet property="petNameTextView" destination="cQr-Es-sf0" id="i95-Ru-HN1"/>
                         <outlet property="petTypeTextView" destination="3k0-6a-me2" id="dFf-gN-bAg"/>
                         <segue destination="GcH-wn-vkp" kind="presentation" identifier="questions" modalPresentationStyle="fullScreen" id="yQh-aQ-qM7"/>
-                        <segue destination="N4d-24-VR9" kind="presentation" identifier="addPet" id="shz-mJ-vie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Efz-hZ-nJU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -967,10 +958,17 @@
                                 <rect key="frame" x="126" y="77" width="162" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5VG-pK-sho">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5VG-pK-sho">
                                         <rect key="frame" x="-4" y="6" width="166" height="158"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ror-9d-xJ3">
+                                        <rect key="frame" x="-4" y="6" width="166" height="158"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="insertImageBtn:" destination="N4d-24-VR9" eventType="touchUpInside" id="ImT-6S-kwk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -982,6 +980,7 @@
                     <connections>
                         <outlet property="ageField" destination="sdN-z7-DQ4" id="WCp-bk-5W9"/>
                         <outlet property="genderField" destination="Wln-tF-Mw0" id="2rT-nK-Fcb"/>
+                        <outlet property="newPetImageView" destination="5VG-pK-sho" id="6ik-U0-AcY"/>
                         <outlet property="petNameTextField" destination="e7X-Zz-ecJ" id="yaq-Bd-HhD"/>
                         <outlet property="petTypeField" destination="3nN-1t-jti" id="4Jz-Ej-idV"/>
                         <segue destination="yuc-Is-4Ll" kind="presentation" identifier="add" modalPresentationStyle="fullScreen" id="dAa-b4-36F"/>
@@ -989,7 +988,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bu6-Po-plt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2606" y="1114"/>
+            <point key="canvasLocation" x="2605.7971014492755" y="1113.6160714285713"/>
         </scene>
         <!--Multi PetsVC-->
         <scene sceneID="r8h-0I-aLS">
@@ -1058,14 +1057,14 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="حيواناتي الاليفه" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpI-p5-uSI">
-                                <rect key="frame" x="123" y="101" width="261" height="31"/>
+                                <rect key="frame" x="122" y="101" width="261" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="DroidArabicKufi-Bold" family="Droid Arabic Kufi" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-dx-yYL">
-                                <rect key="frame" x="44" y="107" width="28" height="25"/>
+                                <rect key="frame" x="87" y="105" width="28" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="plus"/>
                                 <connections>
@@ -1099,18 +1098,18 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFd-kK-nGb">
-                                                            <rect key="frame" x="82" y="80" width="115" height="106"/>
+                                                            <rect key="frame" x="72" y="85" width="135" height="126"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEQ-Xj-mF5">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="115" height="106"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEQ-Xj-mF5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="135" height="126"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="اسم الحيوان الاليف" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIj-zQ-dyY">
-                                                            <rect key="frame" x="56" y="278" width="167" height="38"/>
+                                                            <rect key="frame" x="56" y="256" width="167" height="38"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="DroidArabicKufi" family="Droid Arabic Kufi" pointSize="20"/>
                                                             <nil key="textColor"/>
@@ -1164,14 +1163,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOo-ov-EFO">
+                                <rect key="frame" x="37" y="105" width="32" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="arrow 1"/>
+                                <connections>
+                                    <action selector="signOutBtn:" destination="yuc-Is-4Ll" eventType="touchUpInside" id="igQ-zR-YoO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="WwO-qY-cXX"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="5zs-wS-Kg6" id="8Zt-Iw-oQ5"/>
-                        <segue destination="tDQ-FA-lpd" kind="presentation" identifier="details" modalPresentationStyle="fullScreen" id="jpa-RH-guf"/>
+                        <segue destination="tDQ-FA-lpd" kind="presentation" identifier="details" modalPresentationStyle="automatic" id="jpa-RH-guf"/>
                         <segue destination="N4d-24-VR9" kind="presentation" identifier="addPet" id="BmJ-72-nNJ"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="signedOut" modalPresentationStyle="fullScreen" id="2P0-Ls-2de"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLA-bd-AfW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1203,10 +1211,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dAa-b4-36F"/>
         <segue reference="BmJ-72-nNJ"/>
-        <segue reference="zPV-3Z-yPa"/>
+        <segue reference="dAa-b4-36F"/>
+        <segue reference="poT-1V-d3g"/>
         <segue reference="jpa-RH-guf"/>
+        <segue reference="2P0-Ls-2de"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="4AR7" width="414" height="896"/>
@@ -1219,6 +1228,7 @@
         <image name="VetInfoCell" width="332" height="103"/>
         <image name="X - 12" width="414" height="896"/>
         <image name="X - 18" width="414" height="896"/>
+        <image name="arrow 1" width="80" height="81"/>
         <image name="cat" width="512" height="512"/>
         <image name="chevron-down" width="54" height="50"/>
         <image name="chevron-downGray" width="24" height="24"/>

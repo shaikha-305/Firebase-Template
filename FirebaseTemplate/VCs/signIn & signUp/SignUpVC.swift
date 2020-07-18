@@ -35,12 +35,12 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBOutlet var confirmPasswordField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        petImageView.layer.cornerRadius = petImageView.frame.size.width/2
         // Do any additional setup after loading the view.
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        let uid = Auth.auth().currentUser!.uid
-        let collectionName = "pets/\(uid)/data"
+  
         let error = validateTheFields()
         if error != nil{
             errorMessage(message: error!)
@@ -99,13 +99,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "signUp" {
             let vc = segue.destination as! MultiPetsCollectionVC
-//            vc.petNameText = petNameTextField.text!
-//            vc.petAgeText = ageField.text!
-//            vc.petType = petTypeField.text!
-//            vc.petGender = genderField.text!
-//            vc.year = petInfo.petYear
-//            vc.month = petInfo.petMonth
-//            vc.petInfo = petInfo
+
         }
     }
     

@@ -9,11 +9,17 @@
 import UIKit
 import Firebase
 import CodableFirebase
+import SDWebImage
+import Photos
+import BSImagePicker
 
 class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    let toolBar = UIToolbar()
+    let imagePicker = ImagePickerController()
     var year: String!
     var month: String!
     var imageurl: URL!
+    @IBOutlet var newPetImageView: UIImageView!
     var newPet: Pet = Pet(petName: "", petType: "", petGender: "", petAge: "", petMonth: "", petYear: "")
     @IBOutlet  var petTypeField: UITextField!
     var currentTextField: UITextField!
@@ -27,14 +33,29 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
     @IBOutlet  var petNameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        newPetImageView.layer.cornerRadius = newPetImageView.frame.size.width/2
+        
+        pickerView.showsSelectionIndicator = true
+        toolBar.barStyle = UIBarStyle.black
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .white
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.donePicker))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePicker))
+        toolBar.isUserInteractionEnabled = true
     }
     
+    @objc func donePicker() {
+        petTypeField.resignFirstResponder()
+        genderField.resignFirstResponder()
+        ageField.resignFirstResponder()
+        petNameTextField.resignFirstResponder()
+    }
     @IBAction func addNewPet(_ sender: Any) {
         let uid = Auth.auth().currentUser!.uid
         let collectionName = "pets/\(uid)/data"
-        Networking.createItem(newPet, inCollection: collectionName) {
+        let petId = UUID()
+        Networking.createItem(newPet, inCollection: collectionName, withDocumentId: "\(petId)") {
             print("   🚀🚀🚀🚀🚀🚀   ")
         }
         let petName = petNameTextField.text!
@@ -43,7 +64,9 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         let petGender = genderField.text!
         let petYear = year
         let petMonth = month
-        let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl.absoluteString)
+        
+        
+        let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl?.absoluteString, id: "\(petId)")
         newPet.petName = petNameTextField.text!
         newPet.petAge = ageField.text!
         newPet.petType = petTypeField.text!
@@ -53,18 +76,31 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
             print("New pet is added")
             self.performSegue(withIdentifier: "add", sender: self)
         }
-//        Networking.myFuncForUploadItem(pet, inCollection: "pets", nameDocmount: "data", nameCollection: uid!, name2Docmount: "1", success: {
-//                print("your pet has been added successfully✅")
-//
-//        })
-        
     }
+    
+    @IBAction func insertImageBtn(_ sender: Any) {
+        imagePicker.settings.selection.max = 1
+        
+        presentImagePicker(imagePicker, select: { (asset) in
+            // User selected an asset. Do something with it. Perhaps begin processing/upload?
+        }, deselect: { (asset : PHAsset) in
+            // User deselected an asset. Cancel whatever you did when asset was selected.
+        }, cancel: { (assets : [PHAsset]) in
+            // User canceled selection.
+        }, finish: { (assets : [PHAsset]) in
+            self.newPetImageView.image = UploadImage().getAssetThumbnail(asset: assets[0])
+            UploadImage.UploadImageAndGetUrl(path: "images", "saad.png", ImageView: self.newPetImageView.image!) { (url: URL) in
+                self.imageurl = url
+                print(url)
+            }
+            
+        })
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "add" {
             let vc = segue.destination as! MultiPetsCollectionVC
-            
-//            vc.temporary = newPet
-    }
+        }
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int{
         if currentTextField == ageField {
@@ -85,7 +121,7 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
                 return months.count
             }
         }
-            return 0
+        return 0
         
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -100,7 +136,7 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
                 return months[row]
             }
         }
-            return ""
+        return ""
         
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -116,10 +152,8 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
             currentTextField.text = year + month
             self.year = "\(pickerView.selectedRow(inComponent: 0))"
             self.month = "\(pickerView.selectedRow(inComponent: 1))"
-//            yearLabel.text = "\(pickerView.selectedRow(inComponent: 0))"
-//            monthLabel.text = "\(pickerView.selectedRow(inComponent: 1))"
-           }
         }
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.pickerView.delegate = self
@@ -127,20 +161,14 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         currentTextField = textField
         if currentTextField == petTypeField {
             currentTextField.inputView = pickerView
+            currentTextField.inputAccessoryView = toolBar
         }else if currentTextField == genderField {
             currentTextField.inputView = pickerView
+            currentTextField.inputAccessoryView = toolBar
         }else if currentTextField == ageField {
             currentTextField.inputView = pickerView
+            currentTextField.inputAccessoryView = toolBar
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+

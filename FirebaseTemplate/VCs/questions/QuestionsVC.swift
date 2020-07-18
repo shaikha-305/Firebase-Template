@@ -43,14 +43,14 @@ class QuestionsVC: UIViewController {
     func setQuestionLabel() {
         // M for male
         var catQuestionsM = [
-            Question(question: "هل يعاني \(self.petInfo.petName) من اسهال؟"),
-            Question(question: "هل لاحظت على \(self.petInfo.petName) تورم في جفنه؟"),
-            Question(question: "هل توجد على عين \(self.petInfo.petName) بعض الافرازات؟"),
+            Question(question: "هل يعاني \(self.petInfo.petName!) من اسهال؟"),
+            Question(question: "هل لاحظت على \(self.petInfo.petName!) تورم في جفنه؟"),
+            Question(question: "هل توجد على عين \(self.petInfo.petName!) بعض الافرازات؟"),
         ]
         var dogQuestionsM = [
-            Question(question: "هل يعاني \(self.petInfo.petName) من الم واحمرار في كفوفه؟"),
-            Question(question: "هل لاحظت على كفوف \(self.petInfo.petName) التورم والتقرح؟"),
-            Question(question: "هل لاحظت على \(self.petInfo.petName) قلة حركة ملحوظه والم في المفاصل؟")
+            Question(question: "هل يعاني \(self.petInfo.petName!) من الم واحمرار في كفوفه؟"),
+            Question(question: "هل لاحظت على كفوف \(self.petInfo.petName!) التورم والتقرح؟"),
+            Question(question: "هل لاحظت على \(self.petInfo.petName!) قلة حركة ملحوظه والم في المفاصل؟")
         ]
         
         // F for Female
