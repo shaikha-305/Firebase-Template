@@ -56,11 +56,11 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
     }
     @IBAction func addNewPet(_ sender: Any) {
         let uid = Auth.auth().currentUser!.uid
-        let collectionName = "pets/\(uid)/data"
+        let collectionName = "users/\(uid)/pets"
         let petId = UUID()
-        Networking.createItem(newPet, inCollection: collectionName, withDocumentId: "\(petId)") {
-            print("   🚀🚀🚀🚀🚀🚀   ")
-        }
+//        Networking.createItem(newPet, inCollection: collectionName, withDocumentId: "\(petId)") {
+//            print("   🚀🚀🚀🚀🚀🚀   ")
+//        }
         let petName = petNameTextField.text!
         let petType = petTypeField.text!
         let petAge = ageField.text!
@@ -75,13 +75,14 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         newPet.petType = petTypeField.text!
         newPet.petGender = genderField.text!
         let encodablePet = [try! FirebaseEncoder().encode(newPet)]
-        Networking.createItem(pet, inCollection: "users/\(uid)/pets") {
+        Networking.createItem(pet, inCollection: collectionName, withDocumentId: "\(petId)") {
             print("New pet is added")
-            self.performSegue(withIdentifier: "add", sender: self)
+//            self.performSegue(withIdentifier: "add", sender: self)
         }
     }
     
     @IBAction func insertImageBtn(_ sender: Any) {
+          let imageId = UUID()
         imagePicker.settings.selection.max = 1
         
         presentImagePicker(imagePicker, select: { (asset) in
@@ -92,7 +93,7 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
             // User canceled selection.
         }, finish: { (assets : [PHAsset]) in
             self.newPetImageView.image = UploadImage().getAssetThumbnail(asset: assets[0])
-            UploadImage.UploadImageAndGetUrl(path: "images", "saad.png", ImageView: self.newPetImageView.image!) { (url: URL) in
+            UploadImage.UploadImageAndGetUrl(path: "images", "\(imageId).png", ImageView: self.newPetImageView.image!) { (url: URL) in
                 self.imageurl = url
                 print(url)
             }

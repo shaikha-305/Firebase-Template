@@ -13,7 +13,7 @@ import Photos
 class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     var year: String!
     var month: String!
-    var imageurl: URL!
+    var imageurl: URL?
     @IBOutlet var petImageView: UIImageView!
     let imagePicker = ImagePickerController()
     var petInfo: Pet!
@@ -42,7 +42,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        let uid = Networking.getUserId()
+      
         let error = validateTheFields()
         if error != nil{
             errorMessage(message: " املاأ جميع الفراغات😅")
@@ -58,9 +58,10 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             let petMonth = month
             let petYear = year
             let petId = UUID()
+            let uid = Auth.auth().currentUser?.uid
             let user = User(ownerName: ownerName,
                             email: email)
-            let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl.absoluteString, id: "\(petId)")
+            let pet = Pet(petName: petName, petType: petType, petGender: petGender, petAge: petAge, petMonth: petMonth, petYear: petYear, imageUrl: self.imageurl?.absoluteString, id: "\(petId)")
             if validatePassword(password: password, conformPassword: conformPassword){
                 Networking.signUp(user: user, password: password, success:  { uid in
                     // ✅ Success
@@ -107,8 +108,10 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         }, cancel: { (assets : [PHAsset]) in
             // User canceled selection.
         }, finish: { (assets : [PHAsset]) in
+            let imageId = UUID()
             self.petImageView.image = UploadImage().getAssetThumbnail(asset: assets[0])
-            UploadImage.UploadImageAndGetUrl(path: "images", "saad.png", ImageView: self.petImageView.image!) { (url: URL) in
+            
+            UploadImage.UploadImageAndGetUrl(path: "images", "\(imageId).png", ImageView: self.petImageView.image!) { (url: URL) in
                 self.imageurl = url
                 print(url)
             }

@@ -69,13 +69,13 @@ class QuestionsVC: UIViewController {
             case 1:
                 choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "", petName: self.petInfo.petName!)
             case 2:
-                choosePackage2(pText: " فقط قم باتباع هذه الخطوات لحل مشكلة الاسهال عند \(self.petInfo.petName!)", tips: catTipsP2)
+                choosePackage2(pText: " فقط قم باتباع هذه الخطوات لحل مشكلة الاسهال", tips: catTipsP2, title: "عالج \(petInfo.petName!) في المنزل! ")
             case 3:
                 choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "اضغط لحل مشكلة العين", petName: self.petInfo.petName!)
             case 4:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين و الاسهال عند \(self.petInfo.petName!)", tips: catTipsP4)
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين و الاسهال", tips: catTipsP4, title: "عالج \(petInfo.petName!) في المنزل! ")
             case 5:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين عند \(self.petInfo.petName!)", tips: catTipsP5)
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين", tips: catTipsP5, title: "عالج \(petInfo.petName!) في المنزل!")
             case 6:
                 choosePackage1(show: false, titleLabel: "يمكن ان يكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!)
             default:
@@ -88,13 +88,13 @@ class QuestionsVC: UIViewController {
             case 1:
                 choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "", petName: (self.petInfo.petName)!)
             case 2:
-                choosePackage2(pText: " فقط قم باتباع هذه الخطوات لحل مشكلة الاسهال عند \(self.petInfo.petName!)", tips: catTipsP2)
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الاسهال", tips: catTipsP2, title: "عالج \(petInfo.petName!) في المنزل! ")
             case 3:
                 choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "اضغط لحل مشكلة العين", petName: (self.petInfo?.petName)!)
             case 4:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين و الاسهال عند \(self.petInfo.petName!)", tips: catTipsP4)
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين و الاسهال", tips: catTipsP4, title: "عالج \(petInfo.petName!) في المنزل! ")
             case 5:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين عند \(self.petInfo.petName!)", tips: catTipsP5)
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين", tips: catTipsP5, title: "عالج \(petInfo.petName!) في المنزل!")
             case 6:
                 choosePackage1(show: false, titleLabel: "يمكن ان تكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!)
             default:
@@ -105,7 +105,7 @@ class QuestionsVC: UIViewController {
         }else if self.petInfo.petType == "كلب" && i == dogQuestionsM.count && self.petInfo.petGender == "ذكر" {
             switch packageNumber {
             case 7:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق عند \(self.petInfo.petName!)", tips: dogTips7)
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق", tips: dogTips7, title: "عالج \(petInfo.petName!) في المنزل!")
             case 8:
                 choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصله !", btnTxt: "", petName: self.petInfo.petName!)
             case 9:
@@ -120,7 +120,7 @@ class QuestionsVC: UIViewController {
         }else if self.petInfo.petType == "كلب" && self.petInfo.petGender == "أنثى" && i == dogQuestionsF.count{
             switch packageNumber {
             case 7:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق عند \(self.petInfo.petName!)", tips: dogTips7)
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق", tips: dogTips7, title: "عالج \(petInfo.petName!) في المنزل! ")
             case 8:
                 choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصلها !", btnTxt: "", petName: self.petInfo.petName!)
             case 9:
@@ -180,10 +180,11 @@ class QuestionsVC: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
-    func choosePackage2(pText: String, tips: [String]) {
+    func choosePackage2(pText: String, tips: [String], title: String) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "tips") as! tipsTableVC
         vc.tips = tips
         vc.subTitle = pText
+        vc.title1 = title
         self.navigationController?.pushViewController(vc, animated: true)
         view.window?.rootViewController = vc
         view.window?.makeKeyAndVisible()

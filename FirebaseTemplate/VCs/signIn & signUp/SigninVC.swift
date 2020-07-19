@@ -24,11 +24,10 @@ class SigninVC: UIViewController {
         let uid = Auth.auth().currentUser?.uid
         Networking.signIn(user: SignInCredentials(email: email, password: password), success: { uid in
             // ✅ Success
-            print("You have signed in successfully👌🏼")
             self.performSegue(withIdentifier: "signed", sender: nil)
         }){ error in
             // ❌ Fail
-            self.errorMessage(message: "iVet couldn't sign you in with an error: \(error)")
+            self.errorMessage(message: "الرجاء التأكد من صحة البريد الالكتروني و كلمة المرور!")
         }
 
         func errorMessage(message: String){

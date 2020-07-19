@@ -24,6 +24,11 @@ static func UploadImageAndGetUrl(path : String, _ ImageName: String, ImageView :
         imageRef.putData(data, metadata: nil) { (meta, eror) in
 
             imageRef.downloadURL { (url, eror) in
+                guard eror == nil else {
+                    print("No image to Upload!")
+                    complation(URL(string: "https://img.huffingtonpost.com/asset/5b7fdeab1900001d035028dc.jpeg")!)
+                    return
+                }
                 guard let url = url else {return}
                complation(url)
                

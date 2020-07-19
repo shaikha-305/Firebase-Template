@@ -11,13 +11,15 @@ import UIKit
 class tipsTableVC: UITableViewController {
     
     @IBOutlet weak var Label: UILabel!
+    @IBOutlet var firstLabel: UILabel!
+    var title1: String!
     var subTitle: String!
     var tips: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         Label.text = subTitle
         Label.numberOfLines = 0
-        print(subTitle)
+        firstLabel.text = title1
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,8 +42,7 @@ class tipsTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomCell
 
         // Configure the cell...
-        cell.cellLabel.numberOfLines = 0
-        cell.cellLabel.text = tips[indexPath.row]
+        cell.tipTextView.text = tips[indexPath.row]
         cell.cellImgView.image = UIImage(named: "\(indexPath.row)")
         
         return cell

@@ -87,7 +87,7 @@ class ProfileVC: UIViewController {
                 print(url)
                 var updatedPet = self.selectedPet
                 updatedPet?.imageUrl = url.absoluteString
-                Networking.createItem(updatedPet, inCollection: "users/\(userID!)/pets", withDocumentId: "\(self.selectedPet.id!)") {
+                Networking.createItem(updatedPet, inCollection: "users/\(userID!)/pets", withDocumentId: "\(updatedPet!.id!)") {
                     print("Image should be updated")
                 }
             }

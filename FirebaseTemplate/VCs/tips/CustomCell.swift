@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomCell: UITableViewCell {
-    @IBOutlet weak var cellLabel: UILabel!
+    @IBOutlet var tipTextView: UITextView!
     @IBOutlet weak var cellImgView: UIImageView!
     
     override func awakeFromNib() {
