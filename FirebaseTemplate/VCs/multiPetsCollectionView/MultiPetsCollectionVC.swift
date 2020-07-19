@@ -21,7 +21,6 @@ class MultiPetsCollectionVC: UIViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         retrieveAllPets()
-        centerItemsInCollectionView(cellWidth: 342.0, numberOfItems: Double(myPets.count), spaceBetweenCell: 15.0, collectionView: collectionView)
     }
     
     @IBAction func signOutBtn(_ sender: Any) {
@@ -91,13 +90,13 @@ extension MultiPetsCollectionVC: UICollectionViewDataSource, UICollectionViewDel
         }
     }
 //
-    func centerItemsInCollectionView(cellWidth: Double, numberOfItems: Double, spaceBetweenCell: Double, collectionView: UICollectionView) -> UIEdgeInsets {
-        let totalWidth = cellWidth * numberOfItems
-        let totalSpacingWidth = spaceBetweenCell * (numberOfItems - 1)
-        let leftInset = (collectionView.frame.width - CGFloat(totalWidth + totalSpacingWidth)) / 2
-        let rightInset = leftInset
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: rightInset)
-    }
+//    func centerItemsInCollectionView(cellWidth: Double, numberOfItems: Double, spaceBetweenCell: Double, collectionView: UICollectionView) -> UIEdgeInsets {
+//        let totalWidth = cellWidth * numberOfItems
+//        let totalSpacingWidth = spaceBetweenCell * (numberOfItems - 1)
+//        let leftInset = (collectionView.frame.width - CGFloat(totalWidth + totalSpacingWidth)) / 2
+//        let rightInset = leftInset
+//        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: rightInset)
+//    }
 //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
 //
 //        let totalCellWidth = CellWidth * CellCount

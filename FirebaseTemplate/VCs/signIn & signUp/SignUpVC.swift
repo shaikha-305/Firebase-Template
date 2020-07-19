@@ -42,7 +42,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        let uid = Auth.auth().currentUser?.uid
+        let uid = Networking.getUserId()
         let error = validateTheFields()
         if error != nil{
             errorMessage(message: " املاأ جميع الفراغات😅")
