@@ -40,16 +40,19 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         toolBar.isTranslucent = true
         toolBar.tintColor = .white
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.donePicker))
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePicker))
+        let cancelButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePressed2))
+        toolBar.setItems([cancelButton], animated: true)
         toolBar.isUserInteractionEnabled = true
     }
     
-    @objc func donePicker() {
+    @objc func donePressed() {
         petTypeField.resignFirstResponder()
         genderField.resignFirstResponder()
         ageField.resignFirstResponder()
         petNameTextField.resignFirstResponder()
+    }
+    @objc func donePressed2() {
+        self.view.endEditing(true)
     }
     @IBAction func addNewPet(_ sender: Any) {
         let uid = Auth.auth().currentUser!.uid

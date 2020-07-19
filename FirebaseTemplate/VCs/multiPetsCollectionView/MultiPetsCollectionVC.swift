@@ -21,6 +21,7 @@ class MultiPetsCollectionVC: UIViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         retrieveAllPets()
+        centerItemsInCollectionView(cellWidth: 342.0, numberOfItems: Double(myPets.count), spaceBetweenCell: 15.0, collectionView: collectionView)
     }
     
     @IBAction func signOutBtn(_ sender: Any) {
@@ -61,6 +62,8 @@ extension MultiPetsCollectionVC: UICollectionViewDataSource, UICollectionViewDel
         cell.petNameLabel.text = pet.petName
         cell.petImgView.layer.cornerRadius = cell.petImgView.frame.size.width/2
         cell.petImgView.sd_setImage(with:  URL(string: pet.imageUrl ?? "https://img.huffingtonpost.com/asset/5b7fdeab1900001d035028dc.jpeg"), completed: nil)
+        
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -79,7 +82,7 @@ extension MultiPetsCollectionVC: UICollectionViewDataSource, UICollectionViewDel
         let pet = myPets[indexPath.row]
         performSegue(withIdentifier: "details", sender: indexPath.row)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "details"{
             let vc = segue.destination as! ProfileVC
@@ -87,4 +90,22 @@ extension MultiPetsCollectionVC: UICollectionViewDataSource, UICollectionViewDel
             vc.selectedPet = myPets[index]
         }
     }
+//
+    func centerItemsInCollectionView(cellWidth: Double, numberOfItems: Double, spaceBetweenCell: Double, collectionView: UICollectionView) -> UIEdgeInsets {
+        let totalWidth = cellWidth * numberOfItems
+        let totalSpacingWidth = spaceBetweenCell * (numberOfItems - 1)
+        let leftInset = (collectionView.frame.width - CGFloat(totalWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: rightInset)
+    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//
+//        let totalCellWidth = CellWidth * CellCount
+//        let totalSpacingWidth = CellSpacing * (CellCount - 1)
+//
+//        let leftInset = (collectionViewWidth - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+//        let rightInset = leftInset
+//
+//        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+//    }
 }
