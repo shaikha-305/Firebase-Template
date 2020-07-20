@@ -14,16 +14,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="C15-d8-rJg">
-                                <rect key="frame" x="110.5" y="361" width="189" height="174"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.45735263819999999" green="0.4746873975" blue="0.4395242929" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="C15-d8-rJg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1xU-aj-i95"/>
-                            <constraint firstItem="C15-d8-rJg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="FG8-6U-B3p"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -32,7 +23,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="launchScreen" width="189" height="174"/>
-    </resources>
 </document>

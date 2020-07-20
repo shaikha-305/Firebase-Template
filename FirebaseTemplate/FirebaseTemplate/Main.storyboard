@@ -426,38 +426,35 @@
                                     <rect key="frame" x="-28" y="-393" width="468" height="693"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz3-A5-j11">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz3-A5-j11">
                                     <rect key="frame" x="3" y="0.0" width="54" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="chevron-down"/>
                                     <connections>
                                         <segue destination="yuc-Is-4Ll" kind="presentation" modalPresentationStyle="fullScreen" id="iev-g1-zEy"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="فقط قم باتباع هذه الخطوات " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFb-zk-nJg">
-                                    <rect key="frame" x="191" y="-50" width="211" height="196"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="197" id="1sn-aw-Jas"/>
-                                        <constraint firstAttribute="width" constant="200" id="qZj-4F-xKY"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="DroidArabicKufi" family="Droid Arabic Kufi" pointSize="16"/>
-                                    <color key="textColor" red="0.33470916750000002" green="0.35532858969999997" blue="0.35213550929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="عالج حيوانك الاليف في منزلك!" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ll-Do-cgL">
+                                    <rect key="frame" x="103" y="35" width="294" height="31"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="DroidArabicKufi-Bold" family="Droid Arabic Kufi" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="عالج حيوانك الاليف في منزلك!" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ll-Do-cgL">
-                                    <rect key="frame" x="108" y="0.0" width="294" height="31"/>
-                                    <fontDescription key="fontDescription" name="DroidArabicKufi-Bold" family="Droid Arabic Kufi" pointSize="20"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="فقط قم باتباع هذه الخطوات " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFb-zk-nJg">
+                                    <rect key="frame" x="186" y="-10" width="211" height="196"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="196" id="bO8-b8-LR2"/>
+                                        <constraint firstAttribute="width" constant="211" id="f1d-uf-Pzj"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="DroidArabicKufi" family="Droid Arabic Kufi" pointSize="14"/>
+                                    <color key="textColor" red="0.33470916750000002" green="0.35532858969999997" blue="0.35213550929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstItem="8ll-Do-cgL" firstAttribute="top" secondItem="yNh-WZ-WUl" secondAttribute="top" id="5sX-MY-dgr"/>
-                                <constraint firstAttribute="bottom" secondItem="8ll-Do-cgL" secondAttribute="bottom" constant="131" id="brs-Xv-oY4"/>
-                                <constraint firstAttribute="trailing" secondItem="8ll-Do-cgL" secondAttribute="trailing" id="ctH-Du-Ak5"/>
-                                <constraint firstAttribute="trailing" secondItem="qFb-zk-nJg" secondAttribute="trailing" constant="12" id="esa-wG-pZe"/>
-                                <constraint firstItem="qFb-zk-nJg" firstAttribute="leading" secondItem="tz3-A5-j11" secondAttribute="trailing" constant="145" id="rh6-Zx-q1q"/>
-                                <constraint firstItem="8ll-Do-cgL" firstAttribute="leading" secondItem="tz3-A5-j11" secondAttribute="trailing" constant="63" id="sNn-IO-pdO"/>
+                                <constraint firstAttribute="trailing" secondItem="qFb-zk-nJg" secondAttribute="trailing" constant="17" id="Iud-OO-cvL"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -881,24 +878,6 @@
                                 <fontDescription key="fontDescription" name="DroidArabicKufi" family="Droid Arabic Kufi" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Br-1g-7Ls">
-                                <rect key="frame" x="35" y="153" width="121" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5t-F2-H6P">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tye-qM-Kzw">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="imageBtn:" destination="Hos-a8-DSO" eventType="touchUpInside" id="ZZt-mi-fWR"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpD-Jt-IRy">
                                 <rect key="frame" x="54" y="54" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -918,6 +897,24 @@
                                 <fontDescription key="fontDescription" name="DroidArabicKufi" family="Droid Arabic Kufi" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Br-1g-7Ls">
+                                <rect key="frame" x="37" y="154" width="121" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5t-F2-H6P">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tye-qM-Kzw">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="imageBtn:" destination="Hos-a8-DSO" eventType="touchUpInside" id="ZZt-mi-fWR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="r2I-FY-eAI"/>
@@ -1214,11 +1211,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ikH-gc-s02"/>
-        <segue reference="Afi-FM-x6A"/>
+        <segue reference="iev-g1-zEy"/>
         <segue reference="XdD-er-Abn"/>
         <segue reference="JXw-9S-i1F"/>
-        <segue reference="23S-4r-9XQ"/>
+        <segue reference="tRB-tg-CrE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="0" width="74" height="82"/>

@@ -41,24 +41,24 @@ class QuestionsVC: UIViewController {
     
     func setQuestionLabel() {
         // M for male
-        var catQuestionsM = [
+        let catQuestionsM = [
             Question(question: "هل يعاني \(self.petInfo.petName!) من اسهال؟"),
             Question(question: "هل لاحظت على \(self.petInfo.petName!) تورم في جفنه؟"),
             Question(question: "هل توجد على عين \(self.petInfo.petName!) بعض الافرازات؟"),
         ]
-        var dogQuestionsM = [
+        let dogQuestionsM = [
             Question(question: "هل يعاني \(self.petInfo.petName!) من الم واحمرار في كفوفه؟"),
             Question(question: "هل لاحظت على كفوف \(self.petInfo.petName!) التورم والتقرح؟"),
             Question(question: "هل لاحظت على \(self.petInfo.petName!) قلة حركة ملحوظه والم في المفاصل؟")
         ]
         
         // F for Female
-        var catQuestionsF = [
+        let catQuestionsF = [
             Question(question: "هل تعاني \(self.petInfo.petName!) من اسهال؟"),
             Question(question: "هل لاحظت على \(self.petInfo.petName!) تورم في جفنها؟"),
             Question(question: "هل توجد على عين \(self.petInfo.petName!) بعض الافرازات؟"),
         ]
-        var dogQuestionsF = [
+        let dogQuestionsF = [
             Question(question: "هل تعاني \(self.petInfo.petName!) من الم واحمرار في كفوفها؟"),
             Question(question: "هل لاحظت على كفوف \(self.petInfo.petName!) التورم والتقرح؟"),
             Question(question: "هل لاحظت على \(self.petInfo.petName!) قلة حركة ملحوظه والم في المفاصل؟")
@@ -67,17 +67,17 @@ class QuestionsVC: UIViewController {
         if i == catQuestionsM.count && self.petInfo.petType == "قطه" && self.petInfo.petGender == "ذكر"{
             switch packageNumber {
             case 1:
-                choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "", petName: self.petInfo.petName!)
+                choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "", petName: self.petInfo.petName!, title1: "")
             case 2:
-                choosePackage2(pText: " فقط قم باتباع هذه الخطوات لحل مشكلة الاسهال", tips: catTipsP2, title: "عالج \(petInfo.petName!) في المنزل! ")
+                choosePackage2(pText: " فقط قم باتباع هذه الخطوات لحل مشكلة الاسهال", tips: catTipsP2, title: "عالج \(self.petInfo.petName!) في المنزل! ")
             case 3:
-                choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "اضغط لحل مشكلة العين", petName: self.petInfo.petName!)
+                choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "اضغط لحل مشكلة العين", petName: self.petInfo.petName!, title1: "عالج \(self.petInfo.petName!) في المنزل! ")
             case 4:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين و الاسهال", tips: catTipsP4, title: "عالج \(petInfo.petName!) في المنزل! ")
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين و الاسهال", tips: catTipsP4, title: "عالج \(self.petInfo.petName!) في المنزل! ")
             case 5:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين", tips: catTipsP5, title: "عالج \(petInfo.petName!) في المنزل!")
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين", tips: catTipsP5, title: "عالج \(self.petInfo.petName!) في المنزل!")
             case 6:
-                choosePackage1(show: false, titleLabel: "يمكن ان يكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!)
+                choosePackage1(show: false, titleLabel: "يمكن ان يكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!, title1: "")
             default:
                 fatalError()
             }
@@ -86,17 +86,17 @@ class QuestionsVC: UIViewController {
         }else if self.petInfo.petType == "قطه" && i == catQuestionsF.count && self.petInfo.petGender == "أنثى"{
             switch packageNumber {
             case 1:
-                choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "", petName: (self.petInfo.petName)!)
+                choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "", petName: (self.petInfo.petName)!, title1: "")
             case 2:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الاسهال", tips: catTipsP2, title: "عالج \(petInfo.petName!) في المنزل! ")
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الاسهال", tips: catTipsP2, title: "عالج \(self.petInfo.petName!) في المنزل! ")
             case 3:
-                choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "اضغط لحل مشكلة العين", petName: (self.petInfo?.petName)!)
+                choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي للاسهال !", btnTxt: "اضغط لحل مشكلة العين", petName: (self.petInfo?.petName)!, title1: "عالج \(self.petInfo.petName!) في المنزل! ")
             case 4:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين و الاسهال", tips: catTipsP4, title: "عالج \(petInfo.petName!) في المنزل! ")
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين و الاسهال", tips: catTipsP4, title: "عالج \(self.petInfo.petName!) في المنزل! ")
             case 5:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين", tips: catTipsP5, title: "عالج \(petInfo.petName!) في المنزل!")
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة العين", tips: catTipsP5, title: "عالج \(self.petInfo.petName!) في المنزل!")
             case 6:
-                choosePackage1(show: false, titleLabel: "يمكن ان تكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!)
+                choosePackage1(show: false, titleLabel: "يمكن ان تكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!, title1: "")
             default:
                 fatalError()
             }
@@ -105,13 +105,13 @@ class QuestionsVC: UIViewController {
         }else if self.petInfo.petType == "كلب" && i == dogQuestionsM.count && self.petInfo.petGender == "ذكر" {
             switch packageNumber {
             case 7:
-                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق", tips: dogTips7, title: "عالج \(petInfo.petName!) في المنزل!")
+                choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق", tips: dogTips7, title: "عالج \(self.petInfo.petName!) في المنزل!")
             case 8:
-                choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصله !", btnTxt: "", petName: self.petInfo.petName!)
+                choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصله !", btnTxt: "", petName: self.petInfo.petName!, title1: "")
             case 9:
-                choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصله !", btnTxt: "اضغط لحل مشكلة الحروق", petName: self.petInfo.petName!)
+                choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصله !", btnTxt: "اضغط لحل مشكلة الحروق", petName: self.petInfo.petName!, title1: "عالج \(self.petInfo.petName!) في المنزل! ")
             case 10:
-                choosePackage1(show: false, titleLabel: "يمكن ان يكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!)
+                choosePackage1(show: false, titleLabel: "يمكن ان يكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!, title1: "")
             default:
                 fatalError()
             }
@@ -122,11 +122,11 @@ class QuestionsVC: UIViewController {
             case 7:
                 choosePackage2(pText: "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق", tips: dogTips7, title: "عالج \(petInfo.petName!) في المنزل! ")
             case 8:
-                choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصلها !", btnTxt: "", petName: self.petInfo.petName!)
+                choosePackage1(show: false, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصلها !", btnTxt: "", petName: self.petInfo.petName!, title1: "")
             case 9:
-                choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصلها !", btnTxt: "اضغط لحل مشكلة الحروق", petName: self.petInfo.petName!)
+                choosePackage1(show: true, titleLabel: "بحاجه لتدخل طبي لامر غير طبيعي في مفاصلها !", btnTxt: "اضغط لحل مشكلة الحروق", petName: self.petInfo.petName!, title1: "عالج \(petInfo.petName!) في المنزل! ")
             case 10:
-                choosePackage1(show: false, titleLabel: "يمكن ان تكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!)
+                choosePackage1(show: false, titleLabel: "يمكن ان تكون بحاجه لتدخل طبي لشيء لا يعرفه iVet", btnTxt: "", petName: self.petInfo.petName!, title1: "")
             default:
                 fatalError()
             }
@@ -163,11 +163,12 @@ class QuestionsVC: UIViewController {
         }
         return 0
     }
-    func choosePackage1(show: Bool, titleLabel: String, btnTxt: String, petName: String) {
+    func choosePackage1(show: Bool, titleLabel: String, btnTxt: String, petName: String, title1: String) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "VetInfoVC") as! VetInfoVC
         vc.petInfo = self.petInfo
         vc.titleLabel = titleLabel
         vc.petName = petName
+        vc.title1 = title1
         if show == false {
             vc.showButton = false
             vc.btnText = btnTxt
@@ -183,8 +184,8 @@ class QuestionsVC: UIViewController {
     func choosePackage2(pText: String, tips: [String], title: String) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "tips") as! tipsTableVC
         vc.tips = tips
-        vc.subTitle = pText
-        vc.title1 = title
+        vc.subTitle! = pText
+        vc.title1! = title
         self.navigationController?.pushViewController(vc, animated: true)
         view.window?.rootViewController = vc
         view.window?.makeKeyAndVisible()

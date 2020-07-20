@@ -11,6 +11,7 @@ import UIKit
 class VetInfoVC: UIViewController {
     @IBOutlet weak var otherSolutionOutlet: UIButton!
     @IBOutlet weak var petNameLabel: UILabel!
+    var title1: String!
     var petInfo: Pet!
     var petName: String!
     var showButton: Bool = false
@@ -30,7 +31,7 @@ class VetInfoVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        otherSolutionOutlet.setTitle(btnText!, for: .normal)
+        otherSolutionOutlet.setTitle(btnText! ?? "", for: .normal)
     }
     
     @IBAction func vetLocationsBtn(_ sender: Any) {
@@ -46,8 +47,16 @@ class VetInfoVC: UIViewController {
         
     @IBAction func otherSolution(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "tips") as! tipsTableVC
+        if petInfo.petType == "قطه"{
         vc.tips = catTipsP5
-        vc.subTitle = "فقط قم باتباع هذه الخطوات لحل مشكلة العين عند \(petInfo.petName)"
+        vc.title1 = title1
+        vc.subTitle = "فقط قم باتباع هذه الخطوات لحل مشكلة العين"
+    }else {
+            vc.tips = dogTips7
+            vc.title1 = title1
+            vc.subTitle = "فقط قم باتباع هذه الخطوات لحل مشكلة الحروق"
+    }
+    
         self.navigationController?.pushViewController(vc, animated: true)
         view.window?.rootViewController = vc
         view.window?.makeKeyAndVisible()
