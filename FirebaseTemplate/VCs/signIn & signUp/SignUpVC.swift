@@ -20,9 +20,9 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     var userInfo: User!
     @IBOutlet weak var petTypeField: UITextField!
     var currentTextField: UITextField!
-    let types = ["قطه", "كلب"]
+    let types = ["","قطه", "كلب"]
     @IBOutlet weak var genderField: UITextField!
-    let gender = ["أنثى", "ذكر"]
+    let gender = ["","أنثى", "ذكر"]
     @IBOutlet weak var ageField: UITextField!
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var monthLabel: UILabel!

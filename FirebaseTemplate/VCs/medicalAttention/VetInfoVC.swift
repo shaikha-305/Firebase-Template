@@ -28,10 +28,11 @@ class VetInfoVC: UIViewController {
         hide()
         textLabel.text = titleLabel
         petNameLabel.text = petName
+        otherSolutionOutlet.setTitle(btnText ?? "", for: .normal)
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        otherSolutionOutlet.setTitle(btnText! ?? "", for: .normal)
+        
     }
     
     @IBAction func vetLocationsBtn(_ sender: Any) {
@@ -39,8 +40,8 @@ class VetInfoVC: UIViewController {
             }
             func openUrl(urlStr:String!) {
 
-                     if let url = NSURL(string:urlStr) {
-                        UIApplication.shared.open(url as URL)
+                     if let url = URL(string:urlStr) {
+                        UIApplication.shared.open(url)
                 }
 
             }

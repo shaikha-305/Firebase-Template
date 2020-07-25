@@ -184,8 +184,8 @@ class QuestionsVC: UIViewController {
     func choosePackage2(pText: String, tips: [String], title: String) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "tips") as! tipsTableVC
         vc.tips = tips
-        vc.subTitle! = pText
-        vc.title1! = title
+        vc.subTitle = pText
+        vc.title1 = title
         self.navigationController?.pushViewController(vc, animated: true)
         view.window?.rootViewController = vc
         view.window?.makeKeyAndVisible()

@@ -23,9 +23,9 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
     var newPet: Pet = Pet(petName: "", petType: "", petGender: "", petAge: "", petMonth: "", petYear: "")
     @IBOutlet  var petTypeField: UITextField!
     var currentTextField: UITextField!
-    let types = ["قطه", "كلب"]
+    let types = ["","قطه","كلب"]
     @IBOutlet  var genderField: UITextField!
-    let gender = ["أنثى", "ذكر"]
+    let gender = ["","أنثى","ذكر"]
     @IBOutlet  var ageField: UITextField!
     let months = (0...11).map{"\($0)"}
     let years = (0...20).map{"\($0)"}
