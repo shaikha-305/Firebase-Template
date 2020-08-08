@@ -58,9 +58,6 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         let uid = Auth.auth().currentUser!.uid
         let collectionName = "users/\(uid)/pets"
         let petId = UUID()
-//        Networking.createItem(newPet, inCollection: collectionName, withDocumentId: "\(petId)") {
-//            print("   🚀🚀🚀🚀🚀🚀   ")
-//        }
         let petName = petNameTextField.text!
         let petType = petTypeField.text!
         let petAge = ageField.text!
@@ -77,7 +74,6 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         let encodablePet = [try! FirebaseEncoder().encode(newPet)]
         Networking.createItem(pet, inCollection: collectionName, withDocumentId: "\(petId)") {
             print("New pet is added")
-//            self.performSegue(withIdentifier: "add", sender: self)
         }
     }
     
