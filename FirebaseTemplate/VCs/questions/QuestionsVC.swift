@@ -51,8 +51,7 @@ class QuestionsVC: UIViewController {
             Question(question: "هل لاحظت على كفوف \(self.petInfo.petName!) التورم والتقرح؟"),
             Question(question: "هل لاحظت على \(self.petInfo.petName!) قلة حركة ملحوظه والم في المفاصل؟")
         ]
-        
-        // F for Female
+//        // F for Female
         let catQuestionsF = [
             Question(question: "هل تعاني \(self.petInfo.petName!) من اسهال؟"),
             Question(question: "هل لاحظت على \(self.petInfo.petName!) تورم في جفنها؟"),

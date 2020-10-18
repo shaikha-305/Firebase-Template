@@ -62,8 +62,9 @@ class ProfileVC: UIViewController {
             let vc = segue.destination as! AddVC
         }
     }
+    //selectedPet.petType == "قطه" ? "https://cdn.discordapp.com/attachments/750333042610143303/767268340254638080/dropdown_cat.gif" : "https://cdn.discordapp.com/attachments/750333042610143303/767268402024022016/dropdown_dog.gif"
     func displayingData() {
-        SDWebImageDownloader().downloadImage(with: URL(string: selectedPet.imageUrl ?? "https://img.huffingtonpost.com/asset/5b7fdeab1900001d035028dc.jpeg"), options: .progressiveLoad, progress: {  (receivedSize, expectedSize, url) in
+        SDWebImageDownloader().downloadImage(with: URL(string: selectedPet.imageUrl ?? "https://i.pinimg.com/originals/02/2e/af/022eafe2c5fcb01d20e709e112fa6d7a.png"), options: .progressiveLoad, progress: {  (receivedSize, expectedSize, url) in
             // image is being downloading and you can monitor progress here
         }) { (downloadedImage, data, error, success) in
             self.imageView.image = downloadedImage

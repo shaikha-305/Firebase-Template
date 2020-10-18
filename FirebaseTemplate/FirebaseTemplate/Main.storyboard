@@ -231,7 +231,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="petInfo" translatesAutoresizingMaskIntoConstraints="NO" id="dVc-FP-3uI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="petInfo-2" translatesAutoresizingMaskIntoConstraints="NO" id="dVc-FP-3uI">
                                 <rect key="frame" x="0.0" y="-42" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -303,8 +303,8 @@
                                         <rect key="frame" x="-4" y="0.0" width="166" height="163"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMK-yJ-LP5">
-                                        <rect key="frame" x="-4" y="0.0" width="166" height="158"/>
+                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMK-yJ-LP5">
+                                        <rect key="frame" x="-4" y="0.0" width="166" height="166"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="imageBtn:" destination="tDQ-FA-lpd" eventType="touchUpInside" id="0wk-ZQ-Bbv"/>
@@ -426,15 +426,17 @@
                                     <rect key="frame" x="-54" y="-392" width="468" height="693"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz3-A5-j11">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz3-A5-j11">
                                     <rect key="frame" x="3" y="0.0" width="54" height="42"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="42" id="MaM-6D-NSr"/>
+                                    </constraints>
                                     <state key="normal" image="chevron-down"/>
                                     <connections>
                                         <segue destination="yuc-Is-4Ll" kind="presentation" modalPresentationStyle="fullScreen" id="iev-g1-zEy"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="فقط قم باتباع هذه الخطوات " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFb-zk-nJg">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="فقط قم باتباع هذه الخطوات " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFb-zk-nJg">
                                     <rect key="frame" x="183" y="-25" width="211" height="196"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="196" id="bO8-b8-LR2"/>
@@ -444,9 +446,12 @@
                                     <color key="textColor" red="0.33470916750000002" green="0.35532858969999997" blue="0.35213550929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="عالج حيوانك الاليف في منزلك!" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ll-Do-cgL">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="عالج حيوانك الاليف في منزلك!" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ll-Do-cgL">
                                     <rect key="frame" x="100" y="26" width="294" height="31"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="294" id="82C-qg-vc0"/>
+                                        <constraint firstAttribute="height" constant="31" id="IA8-I7-7Kg"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="DroidArabicKufi-Bold" family="Droid Arabic Kufi" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -454,11 +459,16 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
+                                <constraint firstItem="8ll-Do-cgL" firstAttribute="leading" secondItem="tz3-A5-j11" secondAttribute="trailing" constant="43" id="2KL-bn-OY3"/>
+                                <constraint firstItem="8ll-Do-cgL" firstAttribute="top" secondItem="yNh-WZ-WUl" secondAttribute="top" constant="26" id="IpJ-xS-pIW"/>
                                 <constraint firstAttribute="trailing" secondItem="qFb-zk-nJg" secondAttribute="trailing" constant="17" id="Iud-OO-cvL"/>
+                                <constraint firstItem="qFb-zk-nJg" firstAttribute="trailing" secondItem="8ll-Do-cgL" secondAttribute="trailing" id="R3a-w3-Sj6"/>
+                                <constraint firstItem="qFb-zk-nJg" firstAttribute="top" secondItem="yNh-WZ-WUl" secondAttribute="top" constant="-25" id="izC-HC-gsj"/>
+                                <constraint firstItem="tz3-A5-j11" firstAttribute="top" secondItem="yNh-WZ-WUl" secondAttribute="top" id="qBE-3j-2F2"/>
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="203" id="XVg-Ms-MuX" customClass="CustomCell" customModule="FirebaseTemplate" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="203" id="XVg-Ms-MuX" customClass="CustomCell" customModule="FirebaseTemplate" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="190" width="414" height="203"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XVg-Ms-MuX" id="gEr-8z-dbW">
@@ -476,7 +486,7 @@
                                                 <constraint firstAttribute="width" constant="74" id="nPb-iX-Yf2"/>
                                             </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="الخطوه" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="YGC-jf-7FV">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="الخطوه" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="YGC-jf-7FV">
                                             <rect key="frame" x="113" y="39" width="205" height="128"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="128" id="8a1-Pb-4fj"/>
@@ -576,7 +586,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="اسم الحيوان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9I-tZ-DbE">
-                                <rect key="frame" x="238" y="73" width="132" height="48"/>
+                                <rect key="frame" x="167" y="73" width="203" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="DroidArabicKufi" family="Droid Arabic Kufi" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -619,7 +629,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQS-2u-POM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5173.6000000000004" y="709.35960591133005"/>
+            <point key="canvasLocation" x="5172.463768115942" y="709.15178571428567"/>
         </scene>
         <!--Vet Info TableVC-->
         <scene sceneID="PZg-on-TPK">
@@ -1046,11 +1056,12 @@
                         <outlet property="newPetImageView" destination="5VG-pK-sho" id="6ik-U0-AcY"/>
                         <outlet property="petNameTextField" destination="e7X-Zz-ecJ" id="yaq-Bd-HhD"/>
                         <outlet property="petTypeField" destination="3nN-1t-jti" id="4Jz-Ej-idV"/>
+                        <segue destination="yuc-Is-4Ll" kind="presentation" identifier="added" modalPresentationStyle="fullScreen" id="u7h-sN-uDd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bu6-Po-plt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2605.7971014492755" y="1113.6160714285713"/>
+            <point key="canvasLocation" x="2677" y="1110"/>
         </scene>
         <!--Multi Pets CollectionVC-->
         <scene sceneID="ZJV-Ox-msZ">
@@ -1100,7 +1111,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEQ-Xj-mF5">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="135" height="126"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
                                                             </subviews>
@@ -1151,7 +1162,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOo-ov-EFO">
-                                <rect key="frame" x="37" y="105" width="32" height="31"/>
+                                <rect key="frame" x="37" y="107" width="32" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrow 1"/>
                                 <connections>
@@ -1210,11 +1221,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mci-yR-9f0"/>
-        <segue reference="Afi-FM-x6A"/>
+        <segue reference="u7h-sN-uDd"/>
         <segue reference="vIP-zK-QYH"/>
-        <segue reference="JXw-9S-i1F"/>
-        <segue reference="23S-4r-9XQ"/>
+        <segue reference="zPV-3Z-yPa"/>
+        <segue reference="2P0-Ls-2de"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="0" width="74" height="82"/>
@@ -1232,6 +1242,7 @@
         <image name="chevronDown" width="24" height="24"/>
         <image name="iVet.. Vet in your pocket j" width="205" height="81"/>
         <image name="petInfo" width="414" height="896"/>
+        <image name="petInfo-2" width="828" height="1792"/>
         <image name="plus" width="39" height="39"/>
         <image name="signIn2" width="414" height="896"/>
         <image name="signUp3" width="414" height="896"/>

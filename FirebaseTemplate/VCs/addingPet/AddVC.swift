@@ -75,6 +75,7 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         Networking.createItem(pet, inCollection: collectionName, withDocumentId: "\(petId)") {
             print("New pet is added")
         }
+        performSegue(withIdentifier: "added", sender: nil)
     }
     
     @IBAction func insertImageBtn(_ sender: Any) {
@@ -122,7 +123,6 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
             }
         }
         return 0
-        
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if currentTextField == petTypeField {
@@ -137,7 +137,6 @@ class AddVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
             }
         }
         return ""
-        
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if currentTextField == petTypeField {

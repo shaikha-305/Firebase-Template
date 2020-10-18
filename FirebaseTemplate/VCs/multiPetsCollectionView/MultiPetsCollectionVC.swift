@@ -16,6 +16,7 @@ class MultiPetsCollectionVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ownerName()
         collectionView.reloadData()
         // Do any additional setup after loading the view.
         collectionView.delegate = self
@@ -30,7 +31,16 @@ class MultiPetsCollectionVC: UIViewController{
     @IBAction func plusBtn(_ sender: Any) {
         performSegue(withIdentifier: "addPet", sender: self)
     }
-    
+    func ownerName(){
+        guard let uid = Networking.getUserId() else{
+            print("user doesnt exist")
+            return
+        }
+        Networking.getSingleDocument("users/\(uid)") { (user: User) in
+            var userr = user.ownerName!
+            print(userr)
+        }
+    }
     func retrieveAllPets(){
         guard let uid = Networking.getUserId() else{
             print("Coulndn't retreive pets")
@@ -55,26 +65,16 @@ extension MultiPetsCollectionVC: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCollectionViewCell
-        
+        //"https://img.huffingtonpost.com/asset/5b7fdeab1900001d035028dc.jpeg"
+        //"https://i.pinimg.com/originals/02/2e/af/022eafe2c5fcb01d20e709e112fa6d7a.png"
+        // first cat gif "https://cdn.discordapp.com/attachments/750333042610143303/767262786303557642/3.gif"
+        //the loading dog gif "https://cdn.discordapp.com/attachments/750333042610143303/767262410725654568/ezgif.com-video-to-gif__2_.gif"
         // Configure the cell
         let pet = myPets[indexPath.row]
         cell.petNameLabel.text = pet.petName
         cell.petImgView.layer.cornerRadius = cell.petImgView.frame.size.width/2
-        cell.petImgView.sd_setImage(with:  URL(string: pet.imageUrl ?? "https://img.huffingtonpost.com/asset/5b7fdeab1900001d035028dc.jpeg"), completed: nil)
-        
-        
+        cell.petImgView.sd_setImage(with:  URL(string: pet.imageUrl ?? "https://i.pinimg.com/originals/02/2e/af/022eafe2c5fcb01d20e709e112fa6d7a.png"), completed: nil)
         return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        let totalCellWidth = 80 * collectionView.numberOfItems(inSection: 0)
-        let totalSpacingWidth = 10 * (collectionView.numberOfItems(inSection: 0) - 1)
-        
-        let leftInset = (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-        let rightInset = leftInset
-        
-        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -89,22 +89,4 @@ extension MultiPetsCollectionVC: UICollectionViewDataSource, UICollectionViewDel
             vc.selectedPet = myPets[index]
         }
     }
-//
-//    func centerItemsInCollectionView(cellWidth: Double, numberOfItems: Double, spaceBetweenCell: Double, collectionView: UICollectionView) -> UIEdgeInsets {
-//        let totalWidth = cellWidth * numberOfItems
-//        let totalSpacingWidth = spaceBetweenCell * (numberOfItems - 1)
-//        let leftInset = (collectionView.frame.width - CGFloat(totalWidth + totalSpacingWidth)) / 2
-//        let rightInset = leftInset
-//        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: rightInset)
-//    }
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-//
-//        let totalCellWidth = CellWidth * CellCount
-//        let totalSpacingWidth = CellSpacing * (CellCount - 1)
-//
-//        let leftInset = (collectionViewWidth - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-//        let rightInset = leftInset
-//
-//        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-//    }
 }
